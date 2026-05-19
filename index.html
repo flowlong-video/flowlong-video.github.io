@@ -482,7 +482,7 @@
     <div class="section" id="long-form-30s">
       <div class="section-title">30-Second Long-form Audio-Video Generation</div>
       <p style="width: 75%; text-align: center; font-size: 18px; margin: 0 auto 0.5em; color: #444;">
-        Single-pass generation of <mark>30-second</mark> videos with <mark>synchronized audio</mark>.
+        Single-pass generation of <mark>30-second</mark> videos with <mark>synchronized audio</mark>, with <b>LTX2</b>.
         <br>
         <span style="font-size: 15px; color: #666;">
           Extending <b>LTX2</b>'s base 5-second generation budget by <b>×6</b>.
@@ -517,7 +517,7 @@
     <div class="section" id="samples-16s">
       <div class="section-title">16-Second Audio-Video Samples</div>
       <p style="width: 75%; text-align: center; font-size: 18px; margin: 0 auto 0.5em; color: #444;">
-        Additional <mark>16-second</mark> samples with synchronized audio.
+        Additional <mark>16-second</mark> samples with synchronized audio, with <b>LTX2</b>.
         <br>
         <span style="font-size: 15px; color: #666;">
           Extending <b>LTX2</b>'s base 5-second generation budget by <b>×3</b>.
@@ -568,6 +568,51 @@
         <div class="video-item">
           <video muted autoplay loop playsinline preload="none" poster="ltx2/16s/ours8.jpg">
             <source src="ltx2/16s/ours8.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: 30-Second Long Video Samples (HunyuanVideo-1.5) -->
+    <div class="section no-audio-section" id="samples-hunyuan-30s">
+      <div class="section-title">30-Second Long Video Samples</div>
+      <p style="width: 75%; text-align: center; font-size: 18px; margin: 0 auto 0.5em; color: #444;">
+        Single-pass generation of <mark>30-second</mark> videos with <b>HunyuanVideo-1.5</b>.
+        <br>
+        <span style="font-size: 15px; color: #666;">
+          Extending <b>HunyuanVideo-1.5</b>'s base 5-second generation budget by <b>×6</b>.
+        </span>
+      </p>
+
+      <div class="video-grid-three">
+        <div class="video-item">
+          <video muted autoplay loop playsinline preload="none" poster="HunyuanVideo-1.5/hunyuan_1.jpg">
+            <source src="HunyuanVideo-1.5/hunyuan_1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted autoplay loop playsinline preload="none" poster="HunyuanVideo-1.5/hunyuan_2.jpg">
+            <source src="HunyuanVideo-1.5/hunyuan_2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted autoplay loop playsinline preload="none" poster="HunyuanVideo-1.5/hunyuan_3.jpg">
+            <source src="HunyuanVideo-1.5/hunyuan_3.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted autoplay loop playsinline preload="none" poster="HunyuanVideo-1.5/hunyuan_4.jpg">
+            <source src="HunyuanVideo-1.5/hunyuan_4.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted autoplay loop playsinline preload="none" poster="HunyuanVideo-1.5/hunyuan_5.jpg">
+            <source src="HunyuanVideo-1.5/hunyuan_5.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted autoplay loop playsinline preload="none" poster="HunyuanVideo-1.5/hunyuan_6.jpg">
+            <source src="HunyuanVideo-1.5/hunyuan_6.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -815,6 +860,14 @@
       "ltx2/16s/ours6.mp4": `A horse cantering across a wide open meadow in the Swiss Alps, rider sitting deep in the saddle with a steady posting rhythm. The horse's mane flows with each stride, and its hooves throw up bits of grass and wildflowers. Snow-capped mountain peaks form a dramatic backdrop under a clear blue sky. The meadow is dotted with yellow and purple wildflowers. The rider wears a simple jacket and rides with relaxed confidence. A wide tracking shot from the side keeping pace with the canter. Sound: three-beat canter rhythm of hooves on soft ground, leather saddle creaking, horse snorting rhythmically with exertion, rider's jacket flapping in the wind, meadow grass swishing against the horse's legs, cowbells ringing from a distant alpine pasture.`,
       "ltx2/16s/ours7.mp4": `A street musician playing the violin on a cobblestone sidewalk in Paris during autumn. Fallen golden leaves scatter around his feet as pedestrians walk past. He stands next to an open violin case with a few coins inside, his bow moving passionately across the strings. He wears a long wool coat and a beret, his eyes closed in concentration. The Eiffel Tower is faintly visible in the distant background through the tree-lined boulevard. A wide tracking shot slowly moving around the musician. Sound: soaring violin melody with vibrato, bow scraping across strings, footsteps of passersby on cobblestone, rustling autumn leaves, distant city traffic.`,
       "ltx2/16s/ours8.mp4": `A snowboarder carving wide turns down an open powder slope in the Alps. She wears a red shell jacket and goggles, her board kicking up plumes of fresh snow with each edge transition. Her body leans into each turn rhythmically, weight shifting heel to toe. The slope is bordered by dense fir trees laden with snow, and the sun casts crisp shadows across the white expanse. Snow crystals drift in the air behind her. Distant peaks rise above the tree line. A handheld tracking shot from a vehicle on a parallel piste keeping pace with her descent. Sound: hiss of edges cutting fresh powder, whump of compressed snow under each turn, wind rushing past goggles, jacket fabric flapping, distant chairlift hum, snow crystals tinkling against branches.`,
+
+      // HunyuanVideo-1.5 30-second samples
+      "HunyuanVideo-1.5/hunyuan_1.mp4": `A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colorful flower hat and oversized sunglasses dancing wildly in a sunlit meadow at sunset. The skeleton has a weathered and somewhat decayed appearance, with bones visible. The dance is energetic and almost comical, with exaggerated movements. The background is a vivid blend of warm oranges and pinks, with tall grasses and wildflowers swaying in the breeze. The sky is painted with rich hues of orange and pink, casting long shadows across the landscape. A dynamic medium shot from a low angle, capturing the skeleton's animated dance.`,
+      "HunyuanVideo-1.5/hunyuan_2.mp4": `An adorable kangaroo, dressed in a cute green dress with polka dots, is wearing a small sun hat perched on its head. The kangaroo takes a pleasant stroll through the bustling streets of Mumbai during a vibrant and colorful festival. The background is filled with lively festival-goers in traditional Indian attire, adorned with intricate henna designs and bright jewelry. The scene is filled with colorful decorations, vendors selling various items, and people dancing and singing. The kangaroo moves gracefully, hopping along the cobblestone streets, its tail swinging behind it. The camera angle captures the kangaroo from a slight overhead perspective, highlighting its joyful expression and the festive atmosphere. A medium shot with dynamic movement.`,
+      "HunyuanVideo-1.5/hunyuan_3.mp4": `A dynamic action shot in the style of a professional skateboard magazine, featuring a young male longboarder accelerating downhill. He is fully focused, his expression intense and determined, carving through tight turns with precision. His longboard glides smoothly over the pavement, creating a blur of motion. He wears a black longboard shirt, blue jeans, and white sneakers, with a backpack slung over one shoulder. His hair flows behind him as he moves, and he grips the board tightly with both hands. The background shows a scenic urban street with blurred buildings and trees, hinting at a lively cityscape. The photo captures the moment just after he exits a turn, with a slight bounce in the board and a sense of speed and agility. A medium shot with a slightly elevated camera angle.`,
+      "HunyuanVideo-1.5/hunyuan_4.mp4": `A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse through the vast Gobi Desert at sunset. The man, dressed in a dusty cowboy hat and a worn leather jacket, reins tightly on the horse's neck as he gallops across the golden sands. The sun sets dramatically behind them, casting long shadows and warm hues across the landscape. The background is filled with rolling dunes and sparse, rocky outcrops, emphasizing the harsh beauty of the desert. A dynamic wide shot from a low angle, capturing both the man and the expansive desert vista.`,
+      "HunyuanVideo-1.5/hunyuan_5.mp4": `A flamenco dancer stamping and turning in a continuous rhythmic pattern on a wooden stage. She wears a fitted black dress with a ruffled red train that swirls with each spin. Her heels strike the wooden floor in rapid staccato bursts, and her arms sweep upward in controlled arcs. Her expression is fierce and focused. A single warm spotlight follows her on the otherwise dark stage. Sweat glistens on her brow as she maintains the relentless rhythm. A medium shot capturing her full body and the swirling dress. Sound: rapid heel stamps on hollow wooden stage, sharp staccato footwork patterns, dress fabric whooshing through air, finger snaps between phrases, heavy breathing through the nose, wooden stage resonating and booming under the strikes, faint echo in the performance space.`,
+      "HunyuanVideo-1.5/hunyuan_6.mp4": `A young woman jogging steadily along a tree-lined riverside path in early morning light. She wears a grey hoodie and black leggings, her ponytail swinging rhythmically with each stride. Her sneakers hit the damp pavement in a steady cadence. The river flows calmly beside her, and morning fog hovers low over the water. Tall willows line both sides of the path, their branches swaying gently. A handheld tracking shot following her from the side. Sound: steady rhythmic footfalls on wet pavement, controlled breathing in and out, river water flowing, birds singing in the willows, distant splash of a fish, rustling leaves in the morning breeze.`,
     };
 
     // Comparison prompts (0-indexed). Display num = index + 1.
@@ -876,7 +929,7 @@
     // Attach prompt toggles under each showcase video.
     function attachShowcasePrompts() {
       document
-        .querySelectorAll("#long-form-30s .video-item, #samples-16s .video-item")
+        .querySelectorAll("#long-form-30s .video-item, #samples-16s .video-item, #samples-hunyuan-30s .video-item")
         .forEach(item => {
           const src = item.querySelector("source")?.getAttribute("src");
           const text = SHOWCASE_PROMPTS[src];
