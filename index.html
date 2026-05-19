@@ -289,15 +289,31 @@
       margin-bottom: 12px;
     }
 
-    /* Text-to-3DGS comparison: 2-column grid (Baseline | Ours) */
-    .gs-grid-2col {
+    /* Text-to-3DGS comparison: 4-column grid (2 pairs of Baseline|Ours per row) */
+    .gs-grid-4col {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 360px));
-      justify-content: center;
-      gap: 14px 22px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px 18px;
       padding: 12px 20px 20px;
-      max-width: 900px;
+      max-width: 1500px;
       margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    /* Allow grid cells to shrink and force equal column widths */
+    .gs-grid-4col > * { min-width: 0; }
+    /* Videos are square (448x448 source) — set aspect so cell sizes even before metadata loads */
+    .gs-grid-4col .gs-video-wrap {
+      aspect-ratio: 1 / 1;
+    }
+    .gs-grid-4col .gs-video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Prompt header within Text-to-3DGS spans only its own pair (2 cols) */
+    .gs-grid-4col .row-prompt-header {
+      grid-column: span 2;
     }
     .gs-video-wrap {
       position: relative;
@@ -680,7 +696,10 @@
         FlowLong's long-generation idea applied to text-to-3DGS: <b>VIST3A</b> runs out of frames mid-trajectory while <b>FlowLong (Ours)</b> continues seamlessly.
       </p>
 
-      <div class="gs-grid-2col" id="gs-grid">
+      <div class="gs-grid-4col" id="gs-grid">
+        <!-- Column headers (repeat for each pair-column) -->
+        <div class="col-label">VIST3A</div>
+        <div class="col-label ours"><span class="ours-pill">FlowLong</span> (Ours)</div>
         <div class="col-label">VIST3A</div>
         <div class="col-label ours"><span class="ours-pill">FlowLong</span> (Ours)</div>
 
@@ -822,8 +841,8 @@
       "12": `The scene displays a modern kitchen with neutral tones, equipped with appliances like an oven and refrigerator. A few plants add greenery to the space. Natural light fills the area from a large window. The dining area features a long table with chairs that match the room's neutral tones, while a chandelier adds elegance above the table.`,
       "13": `An empty asphalt road stretches straight ahead, lined with tall trees on either side. The sky is clear and blue above a tranquil scene.`,
     };
-    // Order in which pairs appear in the grid (must match HTML order)
-    const GS_PAIR_ORDER = ["08", "09", "12", "13"];
+    // Pairs grouped by visual row: 2 pairs per row in the 4-col grid
+    const GS_ROWS = [["08", "09"], ["12", "13"]];
 
     // Build a single prompt-toggle UI block.
     function makePromptBlock(label, fullText) {
@@ -874,23 +893,28 @@
       return header;
     }
 
-    // Inject prompt toggle below each Text-to-3DGS pair.
+    // Inject prompt toggles below each row of Text-to-3DGS pairs.
+    // Each row contains multiple pairs side by side (4-col grid).
     function attachGsRowPrompts() {
       const grid = document.getElementById("gs-grid");
       if (!grid) return;
-      // Iterate in reverse to keep DOM references valid as we insert.
-      for (let i = GS_PAIR_ORDER.length - 1; i >= 0; i--) {
-        const pid = GS_PAIR_ORDER[i];
-        const text = GS_PROMPTS[pid];
-        if (!text) continue;
-        const oursWrap = grid.querySelector(
-          `.gs-video-wrap[data-gs-role="ours"][data-gs-pair="${pid}"]`
+      // Iterate rows from last to first so DOM positions remain stable.
+      for (let r = GS_ROWS.length - 1; r >= 0; r--) {
+        const row = GS_ROWS[r];
+        const lastPid = row[row.length - 1];
+        const anchor = grid.querySelector(
+          `.gs-video-wrap[data-gs-role="ours"][data-gs-pair="${lastPid}"]`
         );
-        if (!oursWrap) continue;
-        // Display number = strip any leading zeros (e.g., "08" -> 8)
-        const displayNum = parseInt(pid, 10);
-        const header = makeRowPromptHeader(displayNum, text);
-        grid.insertBefore(header, oursWrap.nextSibling);
+        if (!anchor) continue;
+        // Insert headers in reverse so DOM order ends up [pair0, pair1, ...]
+        for (let i = row.length - 1; i >= 0; i--) {
+          const pid = row[i];
+          const text = GS_PROMPTS[pid];
+          if (!text) continue;
+          const displayNum = parseInt(pid, 10);
+          const header = makeRowPromptHeader(displayNum, text);
+          grid.insertBefore(header, anchor.nextSibling);
+        }
       }
     }
 
